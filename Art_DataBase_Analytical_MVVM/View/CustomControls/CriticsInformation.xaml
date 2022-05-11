@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="Art_DataBase_Analytical_MVVM.View.CustomControls.CriticsInformation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Art_DataBase_Analytical_MVVM.View.CustomControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Border Style="{StaticResource StyleForBorders}">
+        <DataGrid x:Name="CriticsGrid" Margin="5" BorderBrush="Black" BorderThickness="1"
+                  ItemsSource="{Binding CriticsList}"
+                  AutoGenerateColumns="false" CanUserAddRows="False" 
+                  CanUserDeleteRows="False" IsReadOnly="True"
+                  SelectionMode="Single" SelectionUnit="FullRow">
+            <DataGrid.InputBindings>
+                <MouseBinding Gesture="LeftDoubleClick" Command="{Binding ArtCriticListClickCommand}" 
+                              CommandParameter="{Binding ElementName=CriticsGrid, Path=SelectedItem}"/>
+            </DataGrid.InputBindings>
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding LastName}" Header="Фамилия" Width="150"/>
+                <DataGridTextColumn Binding="{Binding FirstName}" Header="Имя" Width="150"/>
+                <DataGridTextColumn Binding="{Binding Patronymic}" Header="Отчество" Width="150"/>
+                <DataGridTextColumn Binding="{Binding Status}" Header="Статус" Width="125"/>
+                <DataGridTextColumn Binding="{Binding ArticlesCount}" Header="Число статей" Width="125"/>
+                <DataGridTextColumn Binding="{Binding FeedbacksCount}" Header="Число отзывов" Width="125"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Border>
+</UserControl>

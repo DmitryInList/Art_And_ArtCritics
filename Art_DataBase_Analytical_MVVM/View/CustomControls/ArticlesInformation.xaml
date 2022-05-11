@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="Art_DataBase_Analytical_MVVM.View.CustomControls.ArticlesInformation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Art_DataBase_Analytical_MVVM.View.CustomControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Border Style="{StaticResource StyleForBorders}">
+        <DataGrid x:Name="ArticleGrid" Margin="5" BorderBrush="Black" BorderThickness="1"
+                  ItemsSource="{Binding ArticlesList}" 
+                  AutoGenerateColumns="false" CanUserAddRows="False" 
+                  CanUserDeleteRows="False" IsReadOnly="True"
+                  SelectionMode="Single" SelectionUnit="FullRow">
+            <DataGrid.InputBindings>
+                <MouseBinding Gesture="LeftDoubleClick" Command="{Binding ArticleListClickCommand}" 
+                              CommandParameter="{Binding ElementName=ArticleGrid, Path=SelectedItem}"/>
+            </DataGrid.InputBindings>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Date}" Header="Дата публикации" Width="150"/>
+                <DataGridTextColumn Binding="{Binding Resume}" Header="Текст статьи" Width="250"/>
+                <DataGridTextColumn Binding="{Binding Grade}" Header="Оценка картины" Width="150"/>
+                <DataGridTextColumn Binding="{Binding Rating}" Header="Рейтинг статьи" Width="150"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Border>
+</UserControl>

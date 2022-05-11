@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B66713B1-7D57-44E5-A32A-81AF921B3400}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Art_DataBase_Analytical_MVVM</RootNamespace>
+    <AssemblyName>Art_DataBase_Analytical_MVVM</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Art_DataBase_Analytical_MVVM.ApplicationInput.NewApplicationInput</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Base_For_MVVM">
+      <HintPath>..\..\..\Base_For_MVVM\Служебная библиотека (DLL)\Base_For_MVVM.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="ApplicationInput\NewApplicationInput.cs" />
+    <Compile Include="ViewModel\BaseCanvasDialogViewModel.cs" />
+    <Compile Include="ViewModel\CommonCommandDefenitions.cs" />
+    <Compile Include="ViewModel\LoadDataFromDBViewModel.cs" />
+    <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="ViewModel\OneCanvasViewModel.cs" />
+    <Compile Include="ViewModel\ShowArticleDetailsDialogViewModel.cs" />
+    <Compile Include="ViewModel\ShowCanvasArticlesDialogViewModel.cs" />
+    <Compile Include="ViewModel\ShowCanvasDialogViewModel.cs" />
+    <Compile Include="ViewModel\ShowCriticDetailsDialogViewModel.cs" />
+    <Compile Include="ViewModel\ShowFeedbackDetailsDialogViewModel.cs" />
+    <Compile Include="View\ArticleDetailsDialog.xaml.cs">
+      <DependentUpon>ArticleDetailsDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CanvasArticlesDialog.xaml.cs">
+      <DependentUpon>CanvasArticlesDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CanvasDetailsDialog.xaml.cs">
+      <DependentUpon>CanvasDetailsDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CriticDetailsDialog.xaml.cs">
+      <DependentUpon>CriticDetailsDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CustomControls\ArticlesInformation.xaml.cs">
+      <DependentUpon>ArticlesInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CustomControls\CanvasInformation.xaml.cs">
+      <DependentUpon>CanvasInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CustomControls\CriticsInformation.xaml.cs">
+      <DependentUpon>CriticsInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CustomControls\FeedbacksInformation.xaml.cs">
+      <DependentUpon>FeedbacksInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DialogHiders\ArticleDetailsDialogHider.cs" />
+    <Compile Include="View\DialogHiders\CanvasArticlesDialogHider.cs" />
+    <Compile Include="View\DialogHiders\CanvasDetailsDialogHider.cs" />
+    <Compile Include="View\DialogHiders\CriticDetailsDialogHider.cs" />
+    <Compile Include="View\DialogHiders\FeedbackDetailsDialogHider.cs" />
+    <Compile Include="View\DialogHiders\LoadDataDialogHider.cs" />
+    <Compile Include="View\FeedbackDetailsDialog.xaml.cs">
+      <DependentUpon>FeedbackDetailsDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WelcomeDialog.xaml.cs">
+      <DependentUpon>WelcomeDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WindowMediator\MainWindowMediator.cs" />
+    <Page Include="StylesResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ArticleDetailsDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CanvasArticlesDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CanvasDetailsDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CriticDetailsDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CustomControls\ArticlesInformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CustomControls\CanvasInformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CustomControls\CriticsInformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CustomControls\FeedbacksInformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FeedbackDetailsDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\ConnectionString\CS_Reader.cs" />
+    <Compile Include="Model\Data\ArtArticleInfo.cs" />
+    <Compile Include="Model\Data\ArtCanvasInfo.cs" />
+    <Compile Include="Model\Data\ArtCriticInfo.cs" />
+    <Compile Include="Model\Data\ArtFeedbackInfo.cs" />
+    <Compile Include="Model\Data\IArtArticleInfo.cs" />
+    <Compile Include="Model\Data\IArtCanvasInfo.cs" />
+    <Compile Include="Model\Data\IArtCriticInfo.cs" />
+    <Compile Include="Model\Data\IArtFeedbackInfo.cs" />
+    <Compile Include="Model\Data\IArtObject.cs" />
+    <Compile Include="Model\Entity Framework\ArtArticle.cs" />
+    <Compile Include="Model\Entity Framework\ArtCanvases.cs" />
+    <Compile Include="Model\Entity Framework\ArtCoAuthors.cs" />
+    <Compile Include="Model\Entity Framework\ArtCriticCategory.cs" />
+    <Compile Include="Model\Entity Framework\ArtCritics.cs" />
+    <Compile Include="Model\Entity Framework\ArtFeedback.cs" />
+    <Compile Include="Model\Entity Framework\ArtScore.cs" />
+    <Compile Include="Model\Entity Framework\Art_And_ArtCriticsEntities.cs" />
+    <Compile Include="Model\IModel.cs" />
+    <Compile Include="Model\Model.cs" />
+    <Compile Include="View\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="View\WelcomeDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="View\colors.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>

@@ -1,0 +1,27 @@
+﻿<Window x:Class="Art_DataBase_Analytical_MVVM.View.WelcomeDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Art_DataBase_Analytical_MVVM.View"
+        mc:Ignorable="d"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        Title="Чтение изображений из базы данных 'Искусство и Искусствоведы'"
+        Height="300" Width="480" x:Name="LoadDataDialog" WindowStartupLocation="CenterScreen" 
+        ResizeMode="NoResize" Icon="colors.ico">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadDialogCommand}" CommandParameter="{Binding ElementName=LoadDataDialog}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" TextAlignment="Center" FontSize="16" FontWeight="Black" Foreground="Blue" TextWrapping="Wrap" Margin="20">
+            Пожалуйста подождите, идет загрузка информации из базы данных...
+        </TextBlock>
+        <MediaElement Name="MyGif" Grid.Row="1" Margin="25" UnloadedBehavior="Manual" Stretch="None" Source="Waiting_for_completion.gif" MediaEnded="MyGif_MediaEnded"/>
+    </Grid>
+</Window>

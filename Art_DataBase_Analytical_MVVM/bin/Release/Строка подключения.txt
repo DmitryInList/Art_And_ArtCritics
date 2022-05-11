@@ -1,0 +1,1 @@
+Data Source=.\SQLEXPRESS_2012;Initial Catalog=Art_And_ArtCritics;Integrated Security=True
