@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{141B675E-3535-4D9C-9C2B-900EB618A66B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Art_DataBase_Analitic_EF</RootNamespace>
+    <AssemblyName>Art_DataBase_Analytical_EF</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controller\Controller.cs" />
+    <Compile Include="Controller\IController.cs" />
+    <Compile Include="EventArguments\ArtArticleEventArgs.cs" />
+    <Compile Include="EventArguments\ArtCanvasEventArgs.cs" />
+    <Compile Include="EventArguments\ArtCriticEventArgs.cs" />
+    <Compile Include="EventArguments\ArtFeedbackEventArgs.cs" />
+    <Compile Include="Model\ConnectionString\CS_Reader.cs" />
+    <Compile Include="Model\Data\ArtArticleInfo.cs" />
+    <Compile Include="Model\Data\ArtCanvasInfo.cs" />
+    <Compile Include="Model\Data\ArtCriticInfo.cs" />
+    <Compile Include="Model\Data\ArtFeedbackInfo.cs" />
+    <Compile Include="Model\Data\IArtArticleInfo.cs" />
+    <Compile Include="Model\Data\IArtCanvasInfo.cs" />
+    <Compile Include="Model\Data\IArtCriticInfo.cs" />
+    <Compile Include="Model\Data\IArtFeedbackInfo.cs" />
+    <Compile Include="Model\Data\IArtObject.cs" />
+    <Compile Include="Model\Entity Framework\ArtArticle.cs" />
+    <Compile Include="Model\Entity Framework\ArtCanvases.cs" />
+    <Compile Include="Model\Entity Framework\ArtCoAuthors.cs" />
+    <Compile Include="Model\Entity Framework\ArtCriticCategory.cs" />
+    <Compile Include="Model\Entity Framework\ArtCritics.cs" />
+    <Compile Include="Model\Entity Framework\ArtFeedback.cs" />
+    <Compile Include="Model\Entity Framework\ArtScore.cs" />
+    <Compile Include="Model\Entity Framework\Art_And_ArtCriticsEntities.cs" />
+    <Compile Include="Model\IModel.cs" />
+    <Compile Include="Model\Model.cs" />
+    <Compile Include="View\ArticleDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ArticleDetails.designer.cs">
+      <DependentUpon>ArticleDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CanvasArticlesDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CanvasArticlesDetails.designer.cs">
+      <DependentUpon>CanvasArticlesDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CanvasDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CanvasDetails.designer.cs">
+      <DependentUpon>CanvasDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CriticDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CriticDetails.designer.cs">
+      <DependentUpon>CriticDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FeedbackDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FeedbackDetails.designer.cs">
+      <DependentUpon>FeedbackDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\IView.cs" />
+    <Compile Include="View\MainView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MainView.Designer.cs">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\UserComponents\ArticlesInformation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserComponents\ArticlesInformation.designer.cs">
+      <DependentUpon>ArticlesInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserComponents\CanvasInformation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserComponents\CanvasInformation.designer.cs">
+      <DependentUpon>CanvasInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserComponents\CriticsInformation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserComponents\CriticsInformation.designer.cs">
+      <DependentUpon>CriticsInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserComponents\FeedbacksInformation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserComponents\FeedbacksInformation.designer.cs">
+      <DependentUpon>FeedbacksInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\WelcomeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\WelcomeDialog.designer.cs">
+      <DependentUpon>WelcomeDialog.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\ArticleDetails.resx">
+      <DependentUpon>ArticleDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CanvasArticlesDetails.resx">
+      <DependentUpon>CanvasArticlesDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CanvasDetails.resx">
+      <DependentUpon>CanvasDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CriticDetails.resx">
+      <DependentUpon>CriticDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FeedbackDetails.resx">
+      <DependentUpon>FeedbackDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MainView.resx">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="View\UserComponents\ArticlesInformation.resx">
+      <DependentUpon>ArticlesInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserComponents\CanvasInformation.resx">
+      <DependentUpon>CanvasInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserComponents\CriticsInformation.resx">
+      <DependentUpon>CriticsInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserComponents\FeedbacksInformation.resx">
+      <DependentUpon>FeedbacksInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\WelcomeDialog.resx">
+      <DependentUpon>WelcomeDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>
